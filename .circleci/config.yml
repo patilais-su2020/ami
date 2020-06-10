@@ -6,7 +6,7 @@ jobs:
     executor: packer/default
     steps:
       - checkout
-      - build:
+      - packer/build:
           template: templates/ami_aws_ec2_template.json
           args: '-var aws_access_key=${AWS_DEV_ACCESS_KEY_ID} -var aws_secret_key=${AWS_DEV_ACCESS_SECRET_KEY} -var aws_region=us-east-1 -var source_ami=ami-068663a3c619dd892 -var ssh_username=ubuntu -var ami_name=csye6225_a4_{{timestamp}} -var ami_users=918568617781'
 workflows:
