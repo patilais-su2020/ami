@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   packer: salaxander/packer@0.0.3
 jobs:
-  packer-run-build:
+  packer-run:
     executor: packer/default
     steps:
       - checkout
@@ -16,4 +16,4 @@ workflows:
   version: 2
   packer:
     jobs:
-      - packer-run-build
+      - packer-run
