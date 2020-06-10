@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  packer: salaxander/packer@0.1
+  packer: salaxander/packer@0.0.3
 jobs:
   packer-run-build:
     executor: packer/default
