@@ -8,7 +8,7 @@ Amazon Machine Image
 Install packer using the following commands:
 ```
 wget https://releases.hashicorp.com/packer/1.6.0/packer_1.6.0_linux_amd64.zip
-unzip https://releases.hashicorp.com/packer/1.6.0/packer_1.6.0_linux_amd64.zip
+unzip packer_1.6.0_linux_amd64.zip
 sudo mv packer /usr/local/bin/
 ```
 
