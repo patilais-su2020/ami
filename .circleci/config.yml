@@ -12,6 +12,6 @@ jobs:
           -var source_ami=ami-068663a3c619dd892 -var ssh_username=ubuntu -var ami_name=csye6225_a4_{{timestamp}} -var ami_users=918568617781'
 workflows:
   version: 2
-  packer-example:
+  packer:
     jobs:
-      - packer-run
+      - packer-example
