@@ -20,6 +20,9 @@
             "ssh_username": "{{user `ssh_username`}}",
             "ami_name": "{{user `ami_name`}}",
             "ami_description": "Ubuntu AMI for CSYE-6225",
+            "tags": {
+              "Name": "csye6225_ubuntu_image"
+            },
             "launch_block_device_mappings": [
                 {
                     "device_name": "/dev/sda1",
