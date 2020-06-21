@@ -1,4 +1,4 @@
-version: 1.1
+version: 2.1
 orbs:
   packer: salaxander/packer@0.0.3
 jobs:
@@ -10,7 +10,7 @@ jobs:
           template: templates/ami_aws_ec2_template.json
           args: '-var aws_access_key=${AWS_DEV_ACCESS_KEY_ID} -var aws_secret_key=${AWS_DEV_ACCESS_SECRET_KEY} -var aws_region=us-east-1 -var source_ami=ami-085925f297f89fce1 -var ssh_username=ubuntu -var ami_name=csye6225_a4_{{timestamp}} -var ami_users=918568617781'
 workflows:
-  version: 1
+  version: 2
   packer:
     jobs:
       - packer-run-build
