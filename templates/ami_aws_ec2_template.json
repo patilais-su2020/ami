@@ -37,6 +37,7 @@
   "provisioners": [
     {
       "type": "shell",
+      "environment_vars": ["AWS_REGION={{user `aws_region`}}"],
       "script": "scripts/install_packages.sh"
     }
   ]
