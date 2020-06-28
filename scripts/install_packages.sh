@@ -9,7 +9,7 @@ sudo apt install unzip
 
 echo "--------------- CodeDeploy Agent ---------------"
 sudo apt-get install ruby -y
-wget "https://aws-codedeploy-${AWS_REGION}.s3.${AWS_REGION}.amazonaws.com/latest/install"
+wget "https://aws-codedeploy-{{user `aws_region`}}.s3.{{user `aws_region`}}.amazonaws.com/latest/install"
 chmod +x ./install
 sudo ./install auto
 echo "###INFO: Checking code deplot agent status ##"
