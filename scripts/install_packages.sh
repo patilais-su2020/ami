@@ -38,4 +38,4 @@ wget "https://s3.amazonaws.com/amazoncloudwatch-agent/debian/amd64/latest/amazon
 sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
 
 sudo systemctl enable amazon-cloudwatch-agent.service    
-sudo systemctl status amazon-cloudwatch-agent.service
+# sudo systemctl status amazon-cloudwatch-agent.service
