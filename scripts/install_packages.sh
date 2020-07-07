@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo apt update
 
 echo "Installing NodeJS"
@@ -34,8 +35,20 @@ else
 fi
 
 echo "------------------- Cloud Watch ------------------------"
-wget "https://s3.amazonaws.com/amazoncloudwatch-agent/debian/amd64/latest/amazon-cloudwatch-agent.deb"
-sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
+sudo rm /var/lib/dpkg/lock
+sudo rm /var/lib/dpkg/lock-frontend
+sudo rm /var/cache/apt/archives/lock
 
-sudo systemctl enable amazon-cloudwatch-agent.service    
-sudo systemctl status amazon-cloudwatch-agent.service
+wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
+sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
+echo "Copying cw-json "
+
+sudo usermod -aG adm cwagent
+echo "Listing cloudwatch service"
+systemctl list-unit-files --type=service | grep amazon-cloudwatch-agent.service
+echo "Enabling cloudwatch service"
+sudo systemctl enable amazon-cloudwatch-agent.service
+# echo "Starting cloudwatch service"
+# sudo systemctl start amazon-cloudwatch-agent.service
+echo "Status of cloudwatch agent"
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status
