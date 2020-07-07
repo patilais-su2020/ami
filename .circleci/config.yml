@@ -2,7 +2,7 @@ version: 2
 jobs:
   packer-run-build:
     docker:
-    - image: hashicorp/packer:1.5.1
+    - image: hashicorp/packer:1.5.6
     steps:
     - checkout
     - run:
