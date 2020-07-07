@@ -7,6 +7,11 @@ sudo apt-get install -y nodejs
 echo "Installing unzip"
 sudo apt install unzip
 
+echo "------------------ AWS CLI ---------------------"
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
 echo "--------------- CodeDeploy Agent ---------------"
 sudo apt-get install ruby -y
 wget "https://aws-codedeploy-${AWS_REGION}.s3.${AWS_REGION}.amazonaws.com/latest/install"
@@ -27,3 +32,8 @@ if [[ $? -ne 0 ]]; then
 else
     echo "SUCCESS: CodeDeploy agent is live"
 fi
+
+echo "------------------- Cloud Watch ------------------------"
+wget "https://s3.${AWS_REGION}.amazonaws.com/amazoncloudwatch-agent-${AWS_REGION}/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb"
+
+sudo systemctl enable amazon-cloudwatch-agent.service    
