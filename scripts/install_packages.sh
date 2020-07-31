@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt clean
 sudo apt update
 
 echo "Installing NodeJS"
